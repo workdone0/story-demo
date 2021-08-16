@@ -20,6 +20,17 @@ const Card = (props) => {
     )
 }
 
+const handleSizeType = (size) => {
+    switch (size) {
+      case "lg":
+        return "width: 100%; height: 100vh";
+      case "md":
+        return "width: 50%; height: 75vh";
+      default:
+        return "width: 25%; height: 50vh";
+    }
+  };
+
 const StyledComponents = {
     MainWrapper: styled.div`
         display: flex;
