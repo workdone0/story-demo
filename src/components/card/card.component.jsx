@@ -4,9 +4,9 @@ import  styled  from 'styled-components';
 
 const Card = (props) => {
     console.log(props)
-    const {borderRadius=false, size='lg', name, profile, workedAt} = props 
+    const {borderRadius=false, size='lg', name, profile, workedAt, skillImg, profileImg,mainBg} = props 
     return (
-        <StyledComponents.MainWrapper>
+        <StyledComponents.MainWrapper borderRadius={borderRadius} size={size} skillImg={skillImg} profileImg={profileImg} mainBg={mainBg}>
             <div className="profile-image">
                 <div className="skill-image"/>
                 <span className="tooltiptext">
@@ -36,10 +36,12 @@ const StyledComponents = {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-image: url("https://images.unsplash.com/photo-1626293051573-76141ac83bd8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80");
+        border-radius: ${(props)=>props.borderRadius?'15px':0};
+        background-image: ${(props)=> `url(${props.mainBg})`};
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        ${({ size}) => handleSizeType(size)};
         .profile-image {
             background-image: url("https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png");
             background-position: center;
